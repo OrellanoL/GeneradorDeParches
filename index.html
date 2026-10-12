@@ -53,7 +53,7 @@
             font-size: 15px;
         }
 
-        /* Contenedor dinámico de casillas de precios (ancho libre y sin scroll molesto) */
+        /* Contenedor dinámico de casillas de precios */
         .contenedor-inputs {
             display: flex;
             flex-direction: column;
@@ -62,7 +62,7 @@
             overflow-y: auto;
             padding-right: 5px;
             width: 100%;
-            min-width: 300px;
+            min-width: 280px;
         }
 
         .input-row {
@@ -70,13 +70,6 @@
             align-items: center;
             gap: 10px;
             width: 100%;
-        }
-
-        .input-row span {
-            font-size: 15px;
-            font-weight: bold;
-            color: #444;
-            min-width: 30px;
         }
 
         .input-row input {
@@ -143,7 +136,7 @@
             min-width: 280px;
         }
 
-        /* 3 BOTONES PRINCIPALES SOLICITADOS */
+        /* 3 Botones principales */
         .btn-grupo {
             display: flex;
             flex-direction: column;
@@ -445,7 +438,7 @@
     <div class="titulo-pagina">🏷️ Generador de parches</div>
 
     <div class="controls">
-        <label style="flex: 1.2; min-width: 300px;">
+        <label style="flex: 1.2; min-width: 280px;">
             Precios Regulares:
             <div id="contenedorInputs" class="contenedor-inputs">
                 <!-- Se generan dinámicamente -->
@@ -464,7 +457,7 @@
                 </select>
             </label>
 
-            <!-- 3 Botones solicitados -->
+            <!-- 3 Botones principales -->
             <div class="btn-grupo">
                 <button class="btn-accion btn-generar" onclick="guardarYGenerar()">⚡ Generar Imágenes</button>
                 <button class="btn-accion btn-print" onclick="window.print()">🖨️ Imprimir (PC)</button>
@@ -497,7 +490,7 @@
                 guardados = ["2750", "4500", "1890", "3100"];
             }
             renderizarInputs(guardados);
-            guardarYGenerar(); // Genera de entrada para ver la vista previa
+            guardarYGenerar();
         });
 
         function renderizarInputs(valores, focusIndex = null) {
@@ -507,8 +500,8 @@
             valores.forEach((val, index) => {
                 let fila = document.createElement('div');
                 fila.className = 'input-row';
+                // Se eliminó el span con el número (${index + 1}°)
                 fila.innerHTML = `
-                    <span>${index + 1}°</span>
                     <input type="number" id="input-${index}" value="${val}" placeholder="Ingrese precio" 
                            oninput="guardarEnStorage()" 
                            onkeydown="manejarTeclado(event, ${index})">
@@ -657,7 +650,7 @@
         }
 
         function descargarPDF() {
-            guardarYGenerar(); // Asegurar que esté actualizado
+            guardarYGenerar();
             const elemento = document.getElementById('contenedorPrincipal');
             const opciones = {
                 margin: 0,

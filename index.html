@@ -19,28 +19,28 @@
 
         /* Título principal de la página */
         .titulo-pagina {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
             color: #001a72;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         /* Panel de control superior */
         .controls {
             background: white;
-            padding: 15px;
+            padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
             display: flex;
-            gap: 20px;
+            gap: 30px;
             align-items: flex-start;
             flex-wrap: wrap;
             justify-content: center;
-            max-width: 950px;
+            max-width: 850px;
             width: 100%;
             box-sizing: border-box;
         }
@@ -49,71 +49,50 @@
             font-weight: bold;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
             font-size: 15px;
-            width: 100%;
         }
 
-        @media (min-width: 600px) {
-            .controls label {
-                width: auto;
-            }
-        }
-
-        /* Contenedor dinámico de casillas de precios */
+        /* Contenedor dinámico de casillas de precios (ancho libre y sin scroll molesto) */
         .contenedor-inputs {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-height: 220px;
+            max-height: 300px;
             overflow-y: auto;
             padding-right: 5px;
             width: 100%;
-        }
-
-        @media (min-width: 600px) {
-            .contenedor-inputs {
-                width: 280px;
-            }
+            min-width: 300px;
         }
 
         .input-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
         }
 
         .input-row span {
             font-size: 15px;
             font-weight: bold;
-            color: #333;
+            color: #444;
             min-width: 30px;
         }
 
         .input-row input {
-            padding: 10px;
-            font-size: 18px; /* Tamaño grande para evitar zoom en iOS/Android */
+            padding: 10px 12px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 6px;
             flex: 1;
-        }
-
-        @media (min-width: 600px) {
-            .input-row input {
-                width: 130px;
-                flex: none;
-                font-size: 16px;
-                padding: 6px 10px;
-            }
         }
 
         .btn-add {
             background-color: #2e7d32;
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             font-size: 20px;
             font-weight: bold;
             border-radius: 6px;
@@ -132,9 +111,9 @@
             background-color: #c62828;
             color: white;
             border: none;
-            width: 38px;
-            height: 38px;
-            font-size: 14px;
+            width: 42px;
+            height: 42px;
+            font-size: 16px;
             border-radius: 6px;
             cursor: pointer;
             display: flex;
@@ -159,21 +138,16 @@
         .panel-derecha {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            align-items: stretch;
-            width: 100%;
+            gap: 20px;
+            flex: 1;
+            min-width: 280px;
         }
 
-        @media (min-width: 600px) {
-            .panel-derecha {
-                width: auto;
-                align-items: flex-start;
-            }
-        }
-
+        /* 3 BOTONES PRINCIPALES SOLICITADOS */
         .btn-grupo {
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
             width: 100%;
         }
 
@@ -186,22 +160,39 @@
             font-weight: bold;
             border-radius: 6px;
             cursor: pointer;
-            flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .controls button.btn-accion:hover {
             background-color: #333;
         }
 
+        .btn-generar {
+            background-color: #0284c7 !important;
+        }
+        .btn-generar:hover {
+            background-color: #0369a1 !important;
+        }
+
+        .btn-print {
+            background-color: #374151 !important;
+        }
+        .btn-print:hover {
+            background-color: #1f2937 !important;
+        }
+
         .btn-pdf {
             background-color: #d32f2f !important;
         }
-
         .btn-pdf:hover {
             background-color: #b71c1c !important;
         }
 
-        /* Contenedor general */
+        /* Contenedor general de previsualización */
         .contenedor-principal {
             display: flex;
             flex-direction: column;
@@ -210,7 +201,6 @@
             width: 100%;
         }
 
-        /* Separador de días cuando se imprime todo junto */
         .seccion-dia-titulo {
             width: 100%;
             max-width: 297mm;
@@ -226,33 +216,7 @@
             border-radius: 6px;
         }
 
-        /* EN MÓVILES: Ocultamos la previsualización gigante de la hoja A4 para que no rompa la pantalla, 
-           pero se sigue generando perfectamente al Imprimir o Descargar PDF */
-        @media (max-width: 768px) {
-            .contenedor-principal {
-                display: none !important;
-            }
-            .aviso-movil {
-                display: block !important;
-            }
-        }
-
-        .aviso-movil {
-            display: none;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            max-width: 400px;
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid #bae6fd;
-        }
-
-        /* Simulación de la hoja A4 horizontal en pantallas grandes (PC) */
+        /* Simulación de la hoja A4 horizontal en pantalla */
         .pagina-a4 {
             width: 297mm;
             height: 210mm;
@@ -453,7 +417,7 @@
                 size: A4 landscape;
                 margin: 0;
             }
-            .controls, .seccion-dia-titulo, .titulo-pagina, .aviso-movil {
+            .controls, .seccion-dia-titulo, .titulo-pagina {
                 display: none !important;
             }
             body {
@@ -481,7 +445,7 @@
     <div class="titulo-pagina">🏷️ Generador de parches</div>
 
     <div class="controls">
-        <label>
+        <label style="flex: 1.2; min-width: 300px;">
             Precios Regulares:
             <div id="contenedorInputs" class="contenedor-inputs">
                 <!-- Se generan dinámicamente -->
@@ -491,7 +455,7 @@
         <div class="panel-derecha">
             <label>
                 Día a Imprimir:
-                <select id="selectDia" onchange="guardarYGenerar()">
+                <select id="selectDia">
                     <option value="miercoles">Miércoles (10% - Cuenta DNI)</option>
                     <option value="jueves">Jueves (15% - Mercado Pago)</option>
                     <option value="viernes">Viernes (15% - Cuenta Digital)</option>
@@ -500,16 +464,13 @@
                 </select>
             </label>
 
+            <!-- 3 Botones solicitados -->
             <div class="btn-grupo">
-                <button class="btn-accion" onclick="window.print()">Imprimir</button>
-                <button class="btn-accion btn-pdf" onclick="descargarPDF()">Descargar PDF</button>
+                <button class="btn-accion btn-generar" onclick="guardarYGenerar()">⚡ Generar Imágenes</button>
+                <button class="btn-accion btn-print" onclick="window.print()">🖨️ Imprimir (PC)</button>
+                <button class="btn-accion btn-pdf" onclick="descargarPDF()">📥 Descargar PDF</button>
             </div>
         </div>
-    </div>
-
-    <!-- Aviso para dispositivos móviles -->
-    <div class="aviso-movil">
-        📱 ¡Casillas listas para cargar precios!<br>Tus carteles se arman automáticamente al fondo listos para <b>Descargar en PDF</b> o imprimir.
     </div>
 
     <!-- Contenedor donde se agrupan las páginas A4 -->
@@ -533,10 +494,10 @@
         window.addEventListener('DOMContentLoaded', () => {
             let guardados = JSON.parse(localStorage.getItem('precios_casillas_carteles'));
             if (!guardados || guardados.length === 0) {
-                guardados = ["2750", "4500", "1890", "3100", "1200", "2300"];
+                guardados = ["2750", "4500", "1890", "3100"];
             }
             renderizarInputs(guardados);
-            guardarYGenerar();
+            guardarYGenerar(); // Genera de entrada para ver la vista previa
         });
 
         function renderizarInputs(valores, focusIndex = null) {
@@ -549,7 +510,7 @@
                 fila.innerHTML = `
                     <span>${index + 1}°</span>
                     <input type="number" id="input-${index}" value="${val}" placeholder="Ingrese precio" 
-                           oninput="guardarYGenerar()" 
+                           oninput="guardarEnStorage()" 
                            onkeydown="manejarTeclado(event, ${index})">
                     <button class="btn-add" onclick="agregarInput(${index + 1})">+</button>
                     ${valores.length > 1 ? `<button class="btn-del" onclick="eliminarInput(${index})">❌</button>` : ''}
@@ -583,7 +544,7 @@
                         siguienteInput.select();
                     }
                 }
-                guardarYGenerar();
+                guardarEnStorage();
             }
         }
 
@@ -591,7 +552,7 @@
             let valores = obtenerValoresInputs();
             valores.splice(indiceInsersion, 0, ""); 
             renderizarInputs(valores, indiceInsersion); 
-            guardarYGenerar();
+            guardarEnStorage();
         }
 
         function eliminarInput(indice) {
@@ -599,7 +560,7 @@
             valores.splice(indice, 1);
             if (valores.length === 0) valores.push("");
             renderizarInputs(valores);
-            guardarYGenerar();
+            guardarEnStorage();
         }
 
         function obtenerValoresInputs() {
@@ -609,6 +570,11 @@
                 valores.push(input.value);
             });
             return valores;
+        }
+
+        function guardarEnStorage() {
+            let valores = obtenerValoresInputs();
+            localStorage.setItem('precios_casillas_carteles', JSON.stringify(valores));
         }
 
         function guardarYGenerar() {
@@ -691,11 +657,8 @@
         }
 
         function descargarPDF() {
+            guardarYGenerar(); // Asegurar que esté actualizado
             const elemento = document.getElementById('contenedorPrincipal');
-            
-            // Forzar visualización temporal para que html2pdf pueda capturarlo bien desde el celular
-            elemento.style.display = 'flex';
-            
             const opciones = {
                 margin: 0,
                 filename: 'carteles_promociones.pdf',
@@ -703,13 +666,7 @@
                 html2canvas: { scale: 2, useCORS: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
             };
-
-            html2pdf().from(elemento).set(opciones).save().then(() => {
-                // Volver a ocultarlo en móvil si la pantalla es chica
-                if (window.innerWidth <= 768) {
-                    elemento.style.display = 'none';
-                }
-            });
+            html2pdf().from(elemento).set(opciones).save();
         }
     </script>
 </body>

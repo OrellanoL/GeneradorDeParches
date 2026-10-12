@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Generador Masivo de Carteles - Promociones</title>
+    <title>Generador de parches</title>
     <!-- Librería html2pdf para generar el PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
@@ -14,6 +14,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* Título principal de la página */
+        .titulo-pagina {
+            font-size: 26px;
+            font-weight: 900;
+            color: #001a72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         /* Panel de control superior */
@@ -382,7 +393,7 @@
                 size: A4 landscape;
                 margin: 0;
             }
-            .controls, .seccion-dia-titulo {
+            .controls, .seccion-dia-titulo, .titulo-pagina {
                 display: none !important;
             }
             body {
@@ -405,6 +416,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Título principal -->
+    <div class="titulo-pagina">🏷️ Generador de parches</div>
 
     <div class="controls">
         <label>
@@ -460,7 +474,7 @@
             guardarYGenerar();
         });
 
-        function renderizarInputs(valores) {
+        function renderizarInputs(valores, focusIndex = null) {
             const contenedor = document.getElementById('contenedorInputs');
             contenedor.innerHTML = "";
 
@@ -469,18 +483,52 @@
                 fila.className = 'input-row';
                 fila.innerHTML = `
                     <span>${index + 1}°</span>
-                    <input type="number" value="${val}" placeholder="Ingrese precio" oninput="guardarYGenerar()">
+                    <input type="number" id="input-${index}" value="${val}" placeholder="Ingrese precio" 
+                           oninput="guardarYGenerar()" 
+                           onkeydown="manejarTeclado(event, ${index})">
                     <button class="btn-add" onclick="agregarInput(${index + 1})">+</button>
                     ${valores.length > 1 ? `<button class="btn-del" onclick="eliminarInput(${index})">❌</button>` : ''}
                 `;
                 contenedor.appendChild(fila);
             });
+
+            // Si se indicó un índice para hacer foco (por ejemplo, el nuevo renglón creado)
+            if (focusIndex !== null) {
+                setTimeout(() => {
+                    let inputDestino = document.getElementById(`input-${focusIndex}`);
+                    if (inputDestino) {
+                        inputDestino.focus();
+                        inputDestino.select();
+                    }
+                }, 50);
+            }
+        }
+
+        function manejarTeclado(event, index) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                let valores = obtenerValoresInputs();
+                
+                // Si es el último input, agregamos uno nuevo automáticamente abajo
+                if (index === valores.length - 1) {
+                    valores.push("");
+                    renderizarInputs(valores, index + 1);
+                } else {
+                    // Si hay uno siguiente, saltamos directamente a ese
+                    let siguienteInput = document.getElementById(`input-${index + 1}`);
+                    if (siguienteInput) {
+                        siguienteInput.focus();
+                        siguienteInput.select();
+                    }
+                }
+                guardarYGenerar();
+            }
         }
 
         function agregarInput(indiceInsersion) {
             let valores = obtenerValoresInputs();
             valores.splice(indiceInsersion, 0, ""); // Inserta casilla vacía en la posición siguiente
-            renderizarInputs(valores);
+            renderizarInputs(valores, indiceInsersion); // Hace foco automático en la nueva casilla
             guardarYGenerar();
         }
 

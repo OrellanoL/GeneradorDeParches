@@ -136,7 +136,7 @@
             min-width: 280px;
         }
 
-        /* 3 Botones principales */
+        /* Botones principales */
         .btn-grupo {
             display: flex;
             flex-direction: column;
@@ -164,26 +164,14 @@
             background-color: #333;
         }
 
-        .btn-generar {
-            background-color: #0284c7 !important;
-        }
-        .btn-generar:hover {
-            background-color: #0369a1 !important;
-        }
+        .btn-generar { background-color: #0284c7 !important; }
+        .btn-generar:hover { background-color: #0369a1 !important; }
 
-        .btn-print {
-            background-color: #374151 !important;
-        }
-        .btn-print:hover {
-            background-color: #1f2937 !important;
-        }
+        .btn-print { background-color: #374151 !important; }
+        .btn-print:hover { background-color: #1f2937 !important; }
 
-        .btn-pdf {
-            background-color: #d32f2f !important;
-        }
-        .btn-pdf:hover {
-            background-color: #b71c1c !important;
-        }
+        .btn-pdf { background-color: #d32f2f !important; }
+        .btn-pdf:hover { background-color: #b71c1c !important; }
 
         /* Contenedor general de previsualización */
         .contenedor-principal {
@@ -196,7 +184,7 @@
 
         .seccion-dia-titulo {
             width: 100%;
-            max-width: 297mm;
+            max-width: 210mm;
             background: #000;
             color: #fff;
             font-size: 18px;
@@ -207,52 +195,52 @@
             letter-spacing: 1px;
             margin-top: 10px;
             border-radius: 6px;
+            text-align: center;
         }
 
-        /* Simulación de la hoja A4 horizontal en pantalla */
+        /* Hoja A4 Vertical (Portrait) - 1 cartel por página */
         .pagina-a4 {
-            width: 297mm;
-            height: 210mm;
+            width: 210mm;
+            height: 297mm;
             background: white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 0;
+            padding: 20mm;
             box-sizing: border-box;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            justify-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 20mm;
         }
 
-        /* Estilo exacto del cartel (148.5mm x 105mm) */
+        /* Cartel grande tipo PowerPoint (170mm x 170mm)[cite: 8] */
         .cartel {
-            width: 148.5mm;
-            height: 105mm;
+            width: 170mm;
+            height: 170mm;
             background-color: #fff200 !important;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
-            border: 3px solid black;
+            border: 4px solid black;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 10px 10px 10px;
+            padding: 15px 20px 20px 20px;
             text-align: center;
             position: relative;
             page-break-inside: avoid;
             break-inside: avoid;
         }
 
-        /* Banner promocional tipo Carrefour */
+        /* Banner promocional superior */
         .banner-promocional {
             width: 100%;
             background-color: #fff200 !important;
             color: #000000 !important;
-            border: 2px solid black;
-            border-radius: 16px;
-            padding: 6px 10px;
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 10px 15px;
             box-sizing: border-box;
             display: flex;
             align-items: center;
@@ -264,15 +252,15 @@
         .promo-izq {
             display: flex;
             align-items: flex-end;
-            gap: 4px;
+            gap: 6px;
             font-style: italic;
             color: #000000 !important;
-            min-width: 110px;
+            min-width: 130px;
             justify-content: flex-start;
         }
 
         .promo-num {
-            font-size: 42px;
+            font-size: 65px;
             font-weight: 900;
             line-height: 0.85;
             font-style: italic;
@@ -281,7 +269,7 @@
         }
 
         .promo-texto {
-            font-size: 13px;
+            font-size: 18px;
             font-weight: bold;
             font-style: italic;
             text-align: left;
@@ -296,7 +284,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 3px;
+            gap: 5px;
             flex: 1;
             text-align: center;
             padding: 0 4px;
@@ -306,17 +294,17 @@
             background-color: #000000 !important;
             color: #ffffff !important;
             border: 2px solid black;
-            border-radius: 20px;
-            padding: 4px 28px;
-            font-size: 18px;
+            border-radius: 25px;
+            padding: 6px 36px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
         .dia-text {
-            font-size: 17px;
+            font-size: 24px;
             font-weight: 900;
             color: #000000 !important;
             text-transform: uppercase;
@@ -328,11 +316,11 @@
         }
 
         .promo-der-spacer {
-            min-width: 110px;
+            min-width: 130px;
         }
 
         .precio-container {
-            font-size: 90px;
+            font-size: 140px;
             font-weight: 900;
             color: black;
             display: flex;
@@ -346,13 +334,13 @@
 
         .precio-regular-badge {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
+            bottom: 15px;
+            left: 15px;
             background-color: #fff200;
-            border: 1.5px solid black;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 10px;
+            border: 2px solid black;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: bold;
             color: #000;
             text-transform: uppercase;
@@ -367,12 +355,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             width: 100%;
         }
 
         .pagando-con {
-            font-size: 16px;
+            font-size: 22px;
             font-weight: 900;
             margin: 0;
             letter-spacing: 0.8px;
@@ -382,7 +370,7 @@
         }
 
         .logo-box {
-            height: 48px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -390,13 +378,13 @@
         }
 
         .logo-box img {
-            max-height: 46px;
-            max-width: 180px;
+            max-height: 60px;
+            max-width: 240px;
             object-fit: contain;
         }
 
         .minimo-text {
-            font-size: 11px;
+            font-size: 14px;
             font-weight: bold;
             color: #000000 !important;
             text-transform: uppercase;
@@ -407,7 +395,7 @@
         /* Configuración estricta para impresión */
         @media print {
             @page {
-                size: A4 landscape;
+                size: A4 portrait;
                 margin: 0;
             }
             .controls, .seccion-dia-titulo, .titulo-pagina {
@@ -426,8 +414,8 @@
                 margin: 0;
                 page-break-after: always;
                 break-after: page;
-                width: 297mm;
-                height: 210mm;
+                width: 210mm;
+                height: 297mm;
             }
         }
     </style>
@@ -500,7 +488,6 @@
             valores.forEach((val, index) => {
                 let fila = document.createElement('div');
                 fila.className = 'input-row';
-                // Se eliminó el span con el número (${index + 1}°)
                 fila.innerHTML = `
                     <input type="number" id="input-${index}" value="${val}" placeholder="Ingrese precio" 
                            oninput="guardarEnStorage()" 
@@ -585,7 +572,7 @@
         }
 
         function construirCartelesHTML(lineas, config) {
-            let cartelesHTML = [];
+            let htmlPaginas = "";
             lineas.forEach(linea => {
                 let regular = parseFloat(linea.trim());
                 if (!isNaN(regular) && regular > 0) {
@@ -594,45 +581,39 @@
                     let regularFormateado = Math.round(regular).toString();
                     let textoDiaBanner = config.id === "finsemana" ? "" : config.nombre;
 
-                    cartelesHTML.push(`
-                        <div class="cartel">
-                            <div class="banner-promocional">
-                                <div class="promo-izq">
-                                    <span class="promo-num">${config.descuento}%</span>
-                                    <span class="promo-texto">de<br>descuento</span>
+                    // Cada cartel se genera en su propia página A4 individual
+                    htmlPaginas += `
+                        <div class="pagina-a4">
+                            <div class="cartel">
+                                <div class="banner-promocional">
+                                    <div class="promo-izq">
+                                        <span class="promo-num">${config.descuento}%</span>
+                                        <span class="promo-texto">de<br>descuento</span>
+                                    </div>
+                                    <div class="promo-centro">
+                                        <div class="pildora-hoy">HOY</div>
+                                        ${textoDiaBanner ? `<div class="dia-text">${textoDiaBanner}</div>` : ''}
+                                    </div>
+                                    <div class="promo-der-spacer"></div>
                                 </div>
-                                <div class="promo-centro">
-                                    <div class="pildora-hoy">HOY</div>
-                                    ${textoDiaBanner ? `<div class="dia-text">${textoDiaBanner}</div>` : ''}
+                                <div class="precio-container">
+                                    $${precioFormateado}
                                 </div>
-                                <div class="promo-der-spacer"></div>
-                            </div>
-                            <div class="precio-container">
-                                $${precioFormateado}
-                            </div>
-                            <div class="precio-regular-badge">
-                                PRECIO REGULAR:<br>$${regularFormateado}
-                            </div>
-                            <div class="footer-seccion">
-                                <div class="pagando-con">PAGANDO CON:</div>
-                                <div class="logo-box">
-                                    <img src="${config.logo}" alt="Logo Medio de Pago">
+                                <div class="precio-regular-badge">
+                                    PRECIO REGULAR:<br>$${regularFormateado}
                                 </div>
-                                ${config.minimo ? `<div class="minimo-text">${config.minimo}</div>` : ''}
+                                <div class="footer-seccion">
+                                    <div class="pagando-con">PAGANDO CON:</div>
+                                    <div class="logo-box">
+                                        <img src="${config.logo}" alt="Logo Medio de Pago">
+                                    </div>
+                                    ${config.minimo ? `<div class="minimo-text">${config.minimo}</div>` : ''}
+                                </div>
                             </div>
                         </div>
-                    `);
+                    `;
                 }
             });
-
-            let htmlPaginas = "";
-            for (let i = 0; i < cartelesHTML.length; i += 4) {
-                htmlPaginas += `<div class="pagina-a4">`;
-                for (let j = i; j < i + 4 && j < cartelesHTML.length; j++) {
-                    htmlPaginas += cartelesHTML[j];
-                }
-                htmlPaginas += `</div>`;
-            }
             return htmlPaginas;
         }
 
@@ -657,7 +638,7 @@
                 filename: 'carteles_promociones.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
             html2pdf().from(elemento).set(opciones).save();
         }

@@ -198,20 +198,20 @@
             text-align: center;
         }
 
-        /* Cartel optimizado a 150mm x 150mm con salto de página limpio incorporado */
+        /* Cartel optimizado a 150mm x 150mm */
         .cartel {
             width: 150mm;
             height: 150mm;
             background-color: #fff200 !important;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
-            border: 4px solid black;
+            border: 5px solid black;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 15px 15px 15px;
+            padding: 8px 10px 10px 10px;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -229,7 +229,7 @@
             color: #000000 !important;
             border: 3px solid black;
             border-radius: 20px;
-            padding: 8px 12px;
+            padding: 6px 12px;
             box-sizing: border-box;
             display: flex;
             align-items: center;
@@ -241,17 +241,17 @@
         .promo-izq {
             display: flex;
             align-items: flex-end;
-            gap: 6px;
+            gap: 4px;
             font-style: italic;
             color: #000000 !important;
-            min-width: 120px;
+            min-width: 130px;
             justify-content: flex-start;
         }
 
         .promo-num {
-            font-size: 58px;
+            font-size: 62px;
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.82;
             font-style: italic;
             font-family: Arial, sans-serif;
             color: #000000 !important;
@@ -262,7 +262,7 @@
             font-weight: bold;
             font-style: italic;
             text-align: left;
-            line-height: 1.2;
+            line-height: 1.1;
             padding-bottom: 2px;
             color: #000000 !important;
             white-space: nowrap;
@@ -270,72 +270,71 @@
 
         .promo-centro {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            gap: 4px;
+            justify-content: center;
             flex: 1;
-            text-align: center;
-            padding: 0 4px;
+            padding: 0 6px;
         }
 
+        /* DESTACADO PÍLDORA HOY MÁS ANCHA Y GRANDE */
         .pildora-hoy {
             background-color: #000000 !important;
             color: #ffffff !important;
-            border: 2px solid black;
-            border-radius: 25px;
-            padding: 4px 28px;
-            font-size: 22px;
+            border: 3px solid black;
+            border-radius: 30px;
+            padding: 6px 0;
+            width: 100%;
+            font-size: 36px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            line-height: 1;
+            text-align: center;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
-        .dia-text {
-            font-size: 20px;
-            font-weight: 900;
-            color: #000000 !important;
-            text-transform: uppercase;
-            letter-spacing: 0.2px;
-            line-height: 1.1;
-            margin: 0;
-            text-align: center;
-            white-space: nowrap;
-        }
-
         .promo-der-spacer {
-            min-width: 120px;
+            min-width: 130px;
         }
 
+        /* Destacado PRECIO PRINCIPAL */
+        /* Estilo base para precios estándar de 3 o 4 cifras */
         .precio-container {
-            font-size: 125px;
+            font-size: 145px;
             font-weight: 900;
             color: black;
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 0.85;
+            line-height: 0.8;
             margin: auto 0;
             width: 100%;
             text-align: center;
+            letter-spacing: -4px;
+            white-space: nowrap;
+        }
+
+        /* Reducción automática para precios largos (5 cifras o más) */
+        .precio-container.precio-largo {
+            font-size: 110px !important;
+            letter-spacing: -5px !important;
         }
 
         .precio-regular-badge {
             position: absolute;
-            bottom: 12px;
-            left: 12px;
+            bottom: 8px;
+            left: 8px;
             background-color: #fff200;
-            border: 2px solid black;
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-size: 13px;
+            border: 1.5px solid black;
+            padding: 2px 6px; /* Relleno interno reducido */
+            border-radius: 6px;
+            font-size: 10px;   /* Letra más pequeña */
             font-weight: bold;
             color: #000;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             text-align: center;
-            line-height: 1.2;
+            line-height: 1.1;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
@@ -349,17 +348,18 @@
         }
 
         .pagando-con {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 900;
             margin: 0;
             letter-spacing: 0.8px;
             color: black;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
+        /* Destacado LOGO MEDIO DE PAGO */
         .logo-box {
-            height: 55px;
+            height: 75px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -367,13 +367,13 @@
         }
 
         .logo-box img {
-            max-height: 50px;
-            max-width: 220px;
+            max-height: 70px;
+            max-width: 270px;
             object-fit: contain;
         }
 
         .minimo-text {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             color: #000000 !important;
             text-transform: uppercase;
@@ -566,9 +566,11 @@
                     let precioFinal = regular * (1 - config.descuento / 100);
                     let precioFormateado = Math.round(precioFinal).toString();
                     let regularFormateado = Math.round(regular).toString();
-                    let textoDiaBanner = config.id === "finsemana" ? "" : config.nombre;
 
-                    // Cada cartel es independiente y maneja su propio salto de página
+                    let textoPrecio = "$" + precioFormateado;
+                    // Si el texto completo ($19080) tiene 6 o más caracteres, aplica la clase de tamaño reducido
+                    let claseLargo = textoPrecio.length >= 6 ? "precio-largo" : "";
+
                     htmlPaginas += `
                         <div class="cartel">
                             <div class="banner-promocional">
@@ -578,12 +580,11 @@
                                 </div>
                                 <div class="promo-centro">
                                     <div class="pildora-hoy">HOY</div>
-                                    ${textoDiaBanner ? `<div class="dia-text">${textoDiaBanner}</div>` : ''}
                                 </div>
                                 <div class="promo-der-spacer"></div>
                             </div>
-                            <div class="precio-container">
-                                $${precioFormateado}
+                            <div class="precio-container ${claseLargo}">
+                                ${textoPrecio}
                             </div>
                             <div class="precio-regular-badge">
                                 PRECIO REGULAR:<br>$${regularFormateado}
